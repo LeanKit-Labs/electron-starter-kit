@@ -12,7 +12,7 @@
     "compile": "electron-compile ./src -a .",
     "prepackage": "npm run clean-cache && npm run compile",
     "package": "electron-packager . test-electron-compile --platform=darwin --arch=x64 --version=0.37.2 --overwrite",
-    "test": "mocha --compilers js:babel-core/register --reporter spec ./spec/*.spec.js"
+    "test": "mocha --compilers js:babel-core/register --reporter spec ./spec/*.spec.js --require ./spec/helpers/setup.js --colors"
   },
   "author": "David Neal <david@reverentgeek.com> (http://reverentgeek.com)",
   "license": "MIT",
@@ -38,6 +38,9 @@
     "eslint": "^2.6.0",
     "eslint-config-leankit": "^1.1.0",
     "eslint-plugin-react": "^4.2.3",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3",
+    "sinon-as-promised": "^4.0.0",
+    "sinon-chai": "^2.8.0"
   }
 }
