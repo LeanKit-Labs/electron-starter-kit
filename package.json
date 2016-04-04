@@ -7,7 +7,7 @@
     "jscs": "jscs src/**/*.js --fix",
     "eslint": "eslint src/**/*.js",
     "pretest": "npm run jscs && npm run eslint",
-    "start": "electron ./src/index",
+    "start": "electron ./src/main",
     "clean-cache": "rm -rf ./.cache",
     "compile": "electron-compile ./src -a .",
     "prepackage": "npm run clean-cache && npm run compile",
@@ -19,6 +19,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "electron-debug": "^0.5.2",
+    "electron-localshortcut": "^0.6.0",
     "font-awesome": "^4.5.0",
     "jquery": "^2.2.2",
     "react": "^0.14.7",
