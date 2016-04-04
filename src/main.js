@@ -3,6 +3,7 @@ import path from "path";
 import reload from "electron-reload";
 import os from "os";
 import shortcut from "electron-localshortcut";
+import windowState from "./windowState";
 require( "electron-debug" )();
 
 const appPath = path.resolve( path.join( __dirname, "./" ) );
@@ -10,6 +11,10 @@ const urlPath = path.join( appPath, "app/index.html" );
 reload( appPath );
 
 let mainWindow;
+let mainWindowState = windowState( "main", {
+	width: 800,
+	height: 600
+} );
 
 const initMenus = () => {
 	if ( os.platform() === "darwin" ) {
@@ -47,9 +52,25 @@ const initMenus = () => {
 };
 
 const createWindow = () => {
-	mainWindow = new BrowserWindow( { width: 800, height: 600 } );
+	mainWindow = new BrowserWindow( {
+		x: mainWindowState.x,
+		y: mainWindowState.y,
+		width: mainWindowState.width,
+		height: mainWindowState.height,
+		minWidth: 600,
+		minHeight: 400
+	} );
+
+	if ( mainWindowState.isMaximized ) {
+		mainWindow.maximize();
+	}
+
 	mainWindow.loadURL( `file://${urlPath}` );
 	// mainWindow.webContents.openDevTools();
+
+	mainWindow.on( "close", function() {
+		mainWindowState.saveState( mainWindow );
+	} );
 
 	mainWindow.on( "closed", () => {
 		mainWindow = null;
