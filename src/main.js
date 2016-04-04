@@ -4,11 +4,16 @@ import reload from "electron-reload";
 import os from "os";
 import shortcut from "electron-localshortcut";
 import windowState from "./windowState";
+import AppConfig from "./appConfig";
+import ConfigStorage from "./configStorage";
 require( "electron-debug" )();
 
 const appPath = path.resolve( path.join( __dirname, "./" ) );
 const urlPath = path.join( appPath, "app/index.html" );
 reload( appPath );
+
+let store = new ConfigStorage( null, true, app.getPath( "userData" ) );
+let appConfig = new AppConfig( store );
 
 let mainWindow;
 let mainWindowState = windowState( "main", {
@@ -89,4 +94,13 @@ app.on( "activate", () => {
 	if ( mainWindow === null ) {
 		createWindow();
 	}
+} );
+
+ipcMain.on( "get-app-state", ( event, arg ) => {
+	event.returnValue = appConfig.config;
+} );
+
+ipcMain.on( "set-app-state", ( event, arg ) => {
+	appConfig.config = arg;
+	event.returnValue = true;
 } );
