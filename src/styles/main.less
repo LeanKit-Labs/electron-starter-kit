@@ -1,0 +1,71 @@
+* { font-family: "Lucida Grande", "Segoe UI", Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a, button, input[type=submit], .btn, div, span { cursor: default; }
+
+body, div, img, span { -webkit-user-drag: none; -webkit-user-select: none; }
+
+@bkg-green: #f4f8f1;
+@gray1: #272b24;
+@light-yellow: #e6cf22;
+@dark-yellow: #a59332;
+@light-red: #f16360;
+@dark-red: #b34040;
+@light-blue: #5cc9e1;
+@dark-blue: #37929e;
+@light-orange: #faa331;
+@dark-orange: #bf782a;
+@light-green: #96c93d;
+@dark-green: #617f3a;
+
+#main {
+  overflow-y: auto;
+  height: 100%;
+	position: absolute;
+	left:71px;
+	top: 0;
+	bottom: 0;
+	right:0;
+	padding-bottom: 15px;
+}
+
+#side-nav {
+  background-color: @gray1;
+  padding-top: 12px;
+  width:71px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+}
+
+#side-nav ul {
+  list-style: none;
+  padding: 0 19px;
+  margin: 0
+}
+#side-nav li {
+  padding-bottom: 8px;
+}
+
+#side-nav a {
+  font-size: 34px;
+  color: @dark-green;
+}
+#side-nav a:hover {
+  color: @light-green;
+}
+
+.padded { padding: 10px 20px; }
+
+.logo {
+    position: absolute;
+    width: 50px;
+    bottom: 10px;
+    left: 10px;
+}
