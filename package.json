@@ -2,10 +2,10 @@
   "name": "test-electron-compile",
   "version": "0.1.0",
   "description": "",
-  "main": "app/main.js",
+  "main": "src/main.js",
   "scripts": {
-    "jscs": "jscs -x app/*.js app/**/*.js",
-    "eslint": "eslint app/*.js app/**/*.js",
+    "jscs": "jscs -x src/*.js src/**/*.js",
+    "eslint": "eslint src/*.js src/**/*.js",
     "pretest": "npm run jscs && npm run eslint",
     "start": "electron .",
     "compile": "electron-compile --appdir ./ ./app",
