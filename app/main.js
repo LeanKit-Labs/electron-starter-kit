@@ -1,16 +1,16 @@
 import { app, BrowserWindow, ipcMain, dialog, shell, Menu } from "electron";
 import path from "path";
-import reload from "electron-reload";
+// import reload from "electron-reload";
 import os from "os";
 import shortcut from "electron-localshortcut";
-import windowState from "./windowState";
-import AppConfig from "./appConfig";
-import ConfigStorage from "./configStorage";
+import windowState from "./src/windowState";
+import AppConfig from "./src/appConfig";
+import ConfigStorage from "./src/configStorage";
 require( "electron-debug" )();
 
 const appPath = path.resolve( path.join( __dirname, "./" ) );
-const urlPath = path.join( appPath, "app/index.html" );
-reload( appPath );
+const urlPath = path.join( appPath, "index.html" );
+// reload( appPath );
 
 let store = new ConfigStorage( null, true, app.getPath( "userData" ) );
 let appConfig = new AppConfig( store );

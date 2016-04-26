@@ -1,8 +1,8 @@
 import { Router, Route, IndexRoute, Link, IndexLink, browserHistory } from "react-router";
 import React from "react";
 import ReactDOM from "react-dom";
-import Home from "../components/Home";
-import Settings from "../components/Settings";
+import Home from "./src/components/Home";
+import Settings from "./src/components/Settings";
 
 const $ = jQuery = global.$ = global.jQuery = require( "jquery" );
 require( "bootstrap" );

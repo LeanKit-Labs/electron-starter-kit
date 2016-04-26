@@ -13,7 +13,7 @@ class Navigation extends React.Component {
 					<li><Link to="/" className="nav"><i className="fa fa-home"></i></Link></li>
 					<li><Link to="/settings" className="nav"><i className="fa fa-cog"></i></Link></li>
 				</ul>
-				<img className="logo" src="../images/lk-logo.svg" />
+				<img className="logo" src="./images/lk-logo.svg" />
 			</div>
 		);
 	}

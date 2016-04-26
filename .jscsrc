@@ -1,7 +1,4 @@
 {
-	// Added for es6 support
-	"esnext": true,
-
 	// Normal jscsrc
 	"disallowKeywords": [
 		"with"
