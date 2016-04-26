@@ -10,7 +10,7 @@
     "start": "electron .",
     "compile": "electron-compile --appdir ./ ./app",
     "disable:prepackage": "npm run compile",
-    "package": "electron-packager-compile ./ test-electron-compile --platform=darwin --arch=x64 --version=0.37.7 --asar --overwrite --ignore=node_modules/electron-prebuilt-compile",
+    "package": "electron-packager-compile ./ test-electron-compile --platform=darwin --arch=x64 --version=0.37.7 --asar --overwrite --prune",
     "disable:postpackage": "rm -rf .cache",
     "test": "electron-mocha --compilers js:babel-core/register --reporter spec ./spec/*.spec.js --require ./spec/helpers/setup.js --colors"
   },
