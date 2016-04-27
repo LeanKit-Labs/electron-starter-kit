@@ -1,5 +1,5 @@
-import ConfigStorage from "../src/configStorage";
-import AppConfig from "../src/appConfig";
+import ConfigStorage from "../src/src/configStorage";
+import AppConfig from "../src/src/appConfig";
 import fs from "fs-jetpack";
 
 describe( "App Config", () => {

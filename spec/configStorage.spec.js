@@ -1,4 +1,4 @@
-import ConfigStorage from "../src/configStorage";
+import ConfigStorage from "../src/src/configStorage";
 import fs from "fs-jetpack";
 
 describe( "Config Storage", () => {
