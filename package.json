@@ -1,14 +1,18 @@
 {
-  "name": "test-electron-compile",
+  "name": "electron-starter-kit",
+  "productName": "Electron Starter Kit",
+  "companyName": "LeanKit, Inc.",
+  "copyright": "Copyright (c) 2016, LeanKit, Inc. All rights reserved.",
   "version": "0.1.0",
-  "description": "",
+  "electronVersion": "0.37.7",
+  "description": "Electron Starter Kit to get you started with Electron",
   "main": "src/main.js",
   "scripts": {
     "jscs": "jscs -x src/*.js src/**/*.js",
     "eslint": "eslint src/*.js src/**/*.js",
     "pretest": "npm run jscs && npm run eslint",
     "start": "electron .",
-    "package:osx": "electron-packager-compile ./ test-electron-compile --out ./build --platform=darwin --arch=x64 --version=0.37.7 --asar --overwrite --prune",
+    "package": "node src/tasks/package.js",
     "test": "electron-mocha --compilers js:babel-core/register --reporter spec ./spec/*.spec.js --require ./spec/helpers/setup.js --colors"
   },
   "author": "David Neal <david@reverentgeek.com> (http://reverentgeek.com)",
