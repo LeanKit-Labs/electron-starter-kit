@@ -19,11 +19,14 @@ let getArgs = () => {
 	args.push( "--overwrite" );
 	args.push( "--prune" );
 	args.push( `--app-version=${pkginfo.version}` );
-	args.push( `--app-copyright="${pkginfo.copyright}"` );
+
+	if ( platform === "darwin" ) {
+		args.push( `--app-copyright="${pkginfo.copyright}"` );
+	}
 
 	if ( platform === "win32" ) {
-		args.push( `--version-string.CompanyName=\\"${pkginfo.companyName}\\"` );
-		args.push( `--version-string.ProductName=\\"${pkginfo.productName}\\"` );
+		args.push( `--version-string.CompanyName="${pkginfo.companyName}"` );
+		args.push( `--version-string.ProductName="${pkginfo.productName}"` );
 	}
 	return args;
 };
