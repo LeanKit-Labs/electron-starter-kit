@@ -19,7 +19,7 @@ let getArgs = () => {
 	args.push( "--overwrite" );
 	args.push( "--prune" );
 	args.push( `--app-version=${pkginfo.version}` );
-	args.push( `--app-copyright=\\"${pkginfo.copyright}\\"` );
+	args.push( `--app-copyright="${pkginfo.copyright}"` );
 
 	if ( platform === "win32" ) {
 		args.push( `--version-string.CompanyName=\\"${pkginfo.companyName}\\"` );
