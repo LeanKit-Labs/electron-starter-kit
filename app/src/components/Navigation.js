@@ -10,8 +10,8 @@ class Navigation extends React.Component {
 		return (
 			<div id="side-nav">
 				<ul>
-					<li><Link to="/" className="nav"><i className="fa fa-home"></i></Link></li>
-					<li><Link to="/settings" className="nav"><i className="fa fa-cog"></i></Link></li>
+					<li><Link to="/" className="nav"><i className="fa fa-home" /></Link></li>
+					<li><Link to="/settings" className="nav"><i className="fa fa-cog" /></Link></li>
 				</ul>
 				<img className="logo" src="./images/lk-logo.svg" />
 			</div>
