@@ -15,23 +15,23 @@ class Home extends React.Component {
 
 	render() {
 		return (
-		<div>
-			<Navigation />
-			<div className="container-fluid" id="main">
-				<h1>Home</h1>
-				<span>{this.state.text}</span>
-				<form>
-					<div className="input-group">
+			<div>
+				<Navigation />
+				<div className="container-fluid" id="main">
+					<h1>Home</h1>
+					<span>{this.state.text}</span>
+					<form>
+						<div className="input-group">
 							<input type="text"
-								value={this.state.text}
-								onChange={this.onTextChange.bind( this )}
+								value={ this.state.text }
+								onChange={ this.onTextChange.bind( this ) }
 								className="form-control"
 								placeholder=""
 								name="search-term" />
-					</div>
-				</form>
+						</div>
+					</form>
+				</div>
 			</div>
-		</div>
 		);
 	}
 }

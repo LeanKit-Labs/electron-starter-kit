@@ -8,7 +8,7 @@
   "description": "Electron Starter Kit to get you started with Electron",
   "main": "app/main.js",
   "scripts": {
-    "eslint": "eslint tasks/*.js src/*.js src/**/.js",
+    "eslint": "eslint --fix .",
     "start": "electron .",
     "package": "node tasks/package.js",
     "test": "electron-mocha --compilers js:babel-core/register --reporter spec ./spec/*.spec.js --require ./spec/helpers/setup.js --colors"
@@ -20,14 +20,17 @@
     "url": "https://github.com/LeanKit-Labs/electron-starter-kit.git"
   },
   "dependencies": {
-    "bootstrap": "^3.3.6",
+    "babel-preset-node6": "^11.0.0",
+    "babel-preset-react": "^6.16.0",
+    "bootstrap": "^3.3.7",
+    "electron": "^1.4.4",
     "electron-compile": "^3.3.6",
     "electron-debug": "^1.0.1",
     "electron-localshortcut": "^0.6.1",
     "electron-prebuilt-compile": "^1.4.3",
     "font-awesome": "^4.5.0",
     "fs-jetpack": "^0.10.0",
-    "jquery": "^2.2.2",
+    "jquery": "^3.1.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"
@@ -36,13 +39,14 @@
     "asar": "^0.12.3",
     "babel-eslint": "^7.0.0",
     "chai": "^3.5.0",
-    "electron-mocha": "^1.2.2",
+    "electron-mocha": "^3.1.1",
     "electron-packager": "^8.1.0",
-    "electron-reload": "^0.3.0",
+    "electron-reload": "^1.0.2",
     "eslint": "^3.8.1",
     "eslint-config-leankit": "^3.0.0",
+    "eslint-plugin-babel": "^3.3.0",
     "eslint-plugin-react": "^6.4.1",
-    "mocha": "^2.4.5",
+    "mocha": "^3.1.2",
     "sinon": "^1.17.3",
     "sinon-as-promised": "^4.0.0",
     "sinon-chai": "^2.8.0"

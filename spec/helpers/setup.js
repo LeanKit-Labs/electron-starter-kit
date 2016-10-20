@@ -1,4 +1,4 @@
-let chai = require( "chai" );
+const chai = require( "chai" );
 chai.use( require( "sinon-chai" ) );
 require( "sinon-as-promised" );
 global.should = chai.should();

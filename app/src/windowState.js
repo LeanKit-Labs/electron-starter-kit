@@ -5,16 +5,16 @@
 import { app } from "electron";
 import jetpack from "fs-jetpack";
 
-export default function ( name, defaults ) {
+export default function( name, defaults ) {
 	const userDataDir = jetpack.cwd( app.getPath( "userData" ) );
-	const stateStoreFile = "window-state-" + name + ".json";
+	const stateStoreFile = `window-state-${ name }.json`;
 	let state = {
 		width: defaults.width,
 		height: defaults.height
 	};
 
 	try {
-		let loadedState = userDataDir.read( stateStoreFile, "json" );
+		const loadedState = userDataDir.read( stateStoreFile, "json" );
 		if ( loadedState != null ) {
 			state = loadedState;
 		}
@@ -25,12 +25,12 @@ export default function ( name, defaults ) {
 
 	const saveState = function( win ) {
 		if ( !win.isMaximized() && !win.isMinimized() ) {
-			let position = win.getPosition();
-			let size = win.getSize();
-			state.x = position[0];
-			state.y = position[1];
-			state.width = size[0];
-			state.height = size[1];
+			const position = win.getPosition();
+			const size = win.getSize();
+			state.x = position[ 0 ];
+			state.y = position[ 1 ];
+			state.width = size[ 0 ];
+			state.height = size[ 1 ];
 		}
 		state.isMaximized = win.isMaximized();
 		userDataDir.write( stateStoreFile, state, { atomic: true } );
@@ -52,6 +52,6 @@ export default function ( name, defaults ) {
 		get isMaximized() {
 			return state.isMaximized;
 		},
-		saveState: saveState
+		saveState
 	};
 }

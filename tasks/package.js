@@ -4,10 +4,10 @@ const spawn = require( "child_process" ).spawn;
 const cmd = "\"node_modules/.bin/electron-packager-compile\"";
 const pkginfo = require( "../package.json" );
 
-let pkgdir = path.resolve( __dirname, "../" );
+const pkgdir = path.resolve( __dirname, "../" );
 
-let getArgs = () => {
-	let args = [ pkgdir, pkginfo.name ];
+const getArgs = () => {
+	const args = [ pkgdir, pkginfo.name ];
 	args.push( `--version=${ pkginfo.electronVersion }` );
 	const arch = os.arch();
 	const platform = os.platform();
@@ -19,7 +19,7 @@ let getArgs = () => {
 	args.push( "--overwrite" );
 	args.push( "--prune" );
 	args.push( `--app-version=${ pkginfo.version }` );
-    args.push( "--ignore=yarn.lock" );
+	args.push( "--ignore=yarn.lock" );
 
 	if ( platform === "darwin" ) {
 		args.push( `--app-copyright="${ pkginfo.copyright }"` );
@@ -38,14 +38,14 @@ const options = { shell: true };
 
 const packager = spawn( cmd, args, options );
 
-packager.stdout.on( "data", ( data ) => {
+packager.stdout.on( "data", data => {
 	console.log( `stdout: ${data}` ); // eslint-disable-line
 } );
 
-packager.stderr.on( "data", ( data ) => {
+packager.stderr.on( "data", data => {
 	console.log( `stderr: ${ data }` ); // eslint-disable-line
 } );
 
-packager.on( "close", ( code ) => {
+packager.on( "close", code => {
 	console.log( `exited with code ${ code }` ); // eslint-disable-line
 } );

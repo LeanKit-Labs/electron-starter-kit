@@ -1,6 +1,5 @@
-import { app, BrowserWindow, ipcMain, dialog, shell, Menu } from "electron";
+import { app, BrowserWindow, ipcMain, Menu } from "electron";
 import path from "path";
-// import reload from "electron-reload";
 import os from "os";
 import shortcut from "electron-localshortcut";
 import windowState from "./src/windowState";
@@ -10,13 +9,18 @@ require( "electron-debug" )();
 
 const appPath = path.resolve( path.join( __dirname, "./" ) );
 const urlPath = path.join( appPath, "index.html" );
-// reload( appPath );
 
-let store = new ConfigStorage( null, true, app.getPath( "userData" ) );
-let appConfig = new AppConfig( store );
+const isDevMode = !!process.execPath.match( /[\\\/]electron[\\\/]dist[\\\/]Electron\.app[\\\/]/ );
+if ( isDevMode === true ) {
+	const reload = require( "electron-reload" ); //eslint-disable-line
+	reload( appPath );
+}
+
+const store = new ConfigStorage( null, true, app.getPath( "userData" ) );
+const appConfig = new AppConfig( store );
 
 let mainWindow;
-let mainWindowState = windowState( "main", {
+const mainWindowState = windowState( "main", {
 	width: 800,
 	height: 600
 } );
@@ -28,11 +32,11 @@ const initMenus = () => {
 			submenu: [
 				{ label: "About Application", selector: "orderFrontStandardAboutPanel:" },
 				{ type: "separator" },
-				{ label: "Preferences", accelerator: "CmdOrCtrl+,", click: function() {
+				{ label: "Preferences", accelerator: "CmdOrCtrl+,", click: () => {
 					mainWindow.webContents.send( "open-settings" );
 				} },
 				{ type: "separator" },
-				{ label: "Quit", accelerator: "Command+Q", click: function() {
+				{ label: "Quit", accelerator: "Command+Q", click: () => {
 					app.quit();
 				} }
 			] }, {
@@ -70,7 +74,7 @@ const createWindow = () => {
 		mainWindow.maximize();
 	}
 
-	mainWindow.loadURL( `file://${urlPath}` );
+	mainWindow.loadURL( `file://${ urlPath }` );
 	// mainWindow.webContents.openDevTools();
 
 	mainWindow.on( "close", function() {

@@ -18,9 +18,9 @@ export default class ConfigStorage {
 	}
 
 	loadFromFile( configFile ) {
-		let config = jetpack.read( configFile, "json" ) || {};
+		const config = jetpack.read( configFile, "json" ) || {};
 		if ( this.persist ) {
-			let state = this.dataDir.read( this.configFileName, "json" ) || {};
+			const state = this.dataDir.read( this.configFileName, "json" ) || {};
 			Object.assign( state, config );
 			this.cache = state;
 			this.dataDir.write( this.configFileName, state, { atomic: true } );
@@ -58,7 +58,7 @@ export default class ConfigStorage {
 
 	setItem( key, value ) {
 		if ( this.persist ) {
-			let state = this.dataDir.read( this.configFileName, "json" ) || {};
+			const state = this.dataDir.read( this.configFileName, "json" ) || {};
 			state[ key ] = value;
 			this.cache = state;
 			this.dataDir.write( this.configFileName, state, { atomic: true } );

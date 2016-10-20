@@ -4,32 +4,31 @@ import fs from "fs-jetpack";
 
 describe( "App Config", () => {
 	describe( "session config", () => {
-		let appConfig;
-		let defaultConfig;
+		let appConfig, defaultConfig;
 		before( () => {
-			let store = new ConfigStorage();
+			const store = new ConfigStorage();
 			appConfig = new AppConfig( store );
 			defaultConfig = appConfig.defaults;
 		} );
 
 		it( "should get all defaults", () => {
-			let config = appConfig.config;
+			const config = appConfig.config;
 			should.exist( config );
-			let expected = defaultConfig;
+			const expected = defaultConfig;
 			config.should.deep.equal( expected );
 		} );
 
 		it( "should get login", () => {
-			let config = appConfig.login;
+			const config = appConfig.login;
 			should.exist( config );
-			let expected = defaultConfig.login;
+			const expected = defaultConfig.login;
 			config.should.deep.equal( expected );
 		} );
 
 		it( "should set login", () => {
 			let val = appConfig.login;
 			should.exist( val );
-			let expected = defaultConfig.login;
+			const expected = defaultConfig.login;
 			val.should.deep.equal( expected );
 			appConfig.login = { host: "localhost" };
 			val = appConfig.login;
@@ -38,12 +37,11 @@ describe( "App Config", () => {
 	} );
 
 	describe( "persistent config", () => {
-		let appConfig;
-		let defaultConfig;
-		let configFile = "./spec/test-files/test.app.config";
+		let appConfig, defaultConfig;
+		const configFile = "./spec/test-files/test.app.config";
 
 		before( () => {
-			let store = new ConfigStorage( defaultConfig, true, "./spec/test-files/", "test.app.config" );
+			const store = new ConfigStorage( defaultConfig, true, "./spec/test-files/", "test.app.config" );
 			appConfig = new AppConfig( store );
 			defaultConfig = appConfig.defaults;
 		} );
@@ -53,23 +51,23 @@ describe( "App Config", () => {
 		} );
 
 		it( "should get all defaults", () => {
-			let config = appConfig.config;
+			const config = appConfig.config;
 			should.exist( config );
-			let expected = defaultConfig;
+			const expected = defaultConfig;
 			config.should.deep.equal( expected );
 		} );
 
 		it( "should get login", () => {
-			let config = appConfig.login;
+			const config = appConfig.login;
 			should.exist( config );
-			let expected = defaultConfig.login;
+			const expected = defaultConfig.login;
 			config.should.deep.equal( expected );
 		} );
 
 		it( "should set login", () => {
 			let val = appConfig.login;
 			should.exist( val );
-			let expected = defaultConfig.login;
+			const expected = defaultConfig.login;
 			val.should.deep.equal( expected );
 			appConfig.login = { host: "localhost" };
 			val = appConfig.login;

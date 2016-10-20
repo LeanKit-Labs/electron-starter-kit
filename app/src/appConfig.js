@@ -1,7 +1,7 @@
 const _ = require( "lodash" );
 const defaultConfig = {
-			login: { host: "", email: "", password: "", proxy: "" }
-		};
+	login: { host: "", email: "", password: "", proxy: "" }
+};
 
 export default class AppConfig {
 	constructor( store ) {
@@ -9,8 +9,8 @@ export default class AppConfig {
 	}
 
 	get config() {
-		let c = _.clone( defaultConfig );
-		let config = this.store.getAll();
+		const c = _.clone( defaultConfig );
+		const config = this.store.getAll();
 		Object.assign( c, config );
 		return c;
 	}

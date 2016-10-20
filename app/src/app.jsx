@@ -10,8 +10,8 @@ require( "bootstrap" );
 document.addEventListener( "DOMContentLoaded", () => {
 	ReactDOM.render( (
 		<Router>
-			<Route path="/" component={Home} />
-			<Route path="/settings" component={Settings}/>
+			<Route path="/" component={ Home } />
+			<Route path="/settings" component={ Settings } />
 		</Router>
 	), document.getElementById( "app" ) );
 
